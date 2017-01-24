@@ -1,0 +1,29 @@
+{"Students":[
+
+{   "Name" : "Bindu",
+	"Number" : 40,
+	"Class" : 10,
+	"Subjects" :3,
+	"Place" : "Hyderabad"
+},{
+	"Name" : "Pooja",
+	"Number" : 41,
+	"Class" : 10,
+	"Subjects" :3,
+	"Place" : "Hyderabad"
+
+},{
+	"Name" : "sunny",
+	"Number" : 42,
+	"Class" : 10,
+	"Subjects" :3,
+	"Place" : "Hyderabad"
+},{
+	"Name" : "vinni",
+	"Number" : 43,
+	"Class" : 10,
+	"Subjects" :3,
+	"Place" : "Hyderabad"
+
+			}]
+}

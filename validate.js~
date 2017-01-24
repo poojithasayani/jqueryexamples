@@ -1,0 +1,35 @@
+$().ready(function(){
+    $("form[name='submission']").validate({
+     rules:{
+        fulname:"required",
+        id:{
+           required:true,
+           number:true,
+           minlength:3
+           },
+         salary:{
+           required:true,
+           number:true,
+           minlength:4
+          }
+      },
+    messages: {
+        fulname: "Please enter your name",
+        id: {
+          required: "Please provide id",
+          number:"Id must be in number format",
+          minlength: "Your id must be at least 3 digits"
+         },
+        salary:{
+          required:"please provide the salaray",
+          number:"salary must be in number format",
+          minlength:"salary must be atleast of 4 digits"
+         }
+       },
+submitHandler: function(form) {
+      form.submit();
+    }
+
+});
+
+});

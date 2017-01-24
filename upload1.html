@@ -1,0 +1,19 @@
+<html>
+<head>
+<link href=rel="stylesheet" type="text/css" href="uploadfile.css">
+ <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="jquery.uploadfile.min.js"></script>
+<script>
+$(document).ready(function()
+{
+	$("#fileuploader").uploadFile({
+	url:"YOUR_FILE_UPLOAD_URL",
+	fileName:"myfile"
+	});
+});
+</script>
+</head>
+<body>
+	<div id="fileuploader">Upload</div>
+</body>
+</html>

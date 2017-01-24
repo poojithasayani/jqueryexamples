@@ -1,0 +1,155 @@
+<html>
+	<head>
+	    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+		<script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="jquery.validate.min.js"></script>
+        <script type="text/javascript" src="bootstrap.min.js"></script>
+        <script type="text/javascript" src="jquery-ui.min.js"></script>
+         <script type="text/javascript">
+
+         $().ready(function(){
+
+          $("#upload").click(function(){
+
+          	$.ajax({
+          		
+          		type: "get",
+          		url: "example.json",
+          		success: function(result, textStatus, xhr){
+          			$(".alert#success").show('medium');
+          				console.log(xhr.status);
+                
+
+                   var json = (function () {
+                        var json = null;
+                          $.ajax({
+                                'async': false,
+                                'global': false,
+                                'url': "example.json",
+                                'dataType': "json",
+                                'success': function (data) {                                  
+                                      for(var i in data[0]){   
+                                         
+                                          var t=data[0][i];
+                                          if($.isArray(t) && $.type(t)==='object'){
+                                            $.each(t, function(k,v){
+                                              console.log(k[0]);
+                                               var str="";
+                                            str +="<th colspan='2'>"+i+"</th>";
+                                            $("#display").find('thead').append(str);
+                                            });
+                                           
+                                            //console.log(t); 
+                                           // console.log(t.length);
+                                                                  
+                                   
+                                           }
+
+
+                                          
+                                          else{                   	                                     	
+                                          var str='';
+                                          str +='<th>'+i+'</th>';
+                                             $("#display").find('thead').append(str); 
+
+                                      }
+                                      }
+                                                for(var x in data){
+                                                 var t= "<tr></tr>";
+
+                                          for(var i in data[x]){
+                                            var p=data[x][i];
+                                              var str='';
+                                           if($.isArray(p)){
+                                           
+                                              
+                                                  
+                                            
+                                              $.each(p, function (k,v) {
+                                              
+                                                if($.type(v)==='object'){
+                                                
+                                                 $.each(v, function(s,a){
+                                                 
+                                                  
+                                                  str += a+',';
+                                                 // $("#display").find('tbody').append(str);
+                                                 });
+                                                 
+                                                }
+                                                else{
+                                                 
+                                                 str +=v+",";
+                                                }
+
+
+                                              
+                                                
+                                               }); 
+                                               
+                                                  $("#display").find('tbody').append('<td>'+str+'</td>'); 
+
+
+                                              }
+
+                                                    else{
+                                                       var str='';
+                                                       str +='<td>'+p+'</td>';
+                                              $("#display").find('tbody').append(str);
+                                                }      
+                                           
+                                        }                       
+                                      	$("#display").find('tbody').append(t);
+                                     } }
+
+                    }); 
+                     
+                   })(); 
+          			
+          			
+          		},
+          		error: function(result, textStatus, a){
+          			$(".alert#fail").show('medium');
+          				console.log(a.status);
+
+          		}
+          		
+          	});
+          	console.log('hi');
+
+          });
+		});
+         </script>
+
+	</head>
+	<body>
+	     <h2>Upoading a file</h2>	
+		
+		<div><input type="button" name="upload" id="upload" value="Upload"></div>
+
+		<div class="alert alert-success alert-dismissable" style="display:none;" id="success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Success! uploaded successfuly.
+        </div>
+        <div class="alert alert-success alert-dismissable" style="display:none;" id=fail>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Failed! File not found.
+        </div>
+
+        <p id="show"></p>
+
+		<div id="display"> 
+		<table class="table table-bordered">
+			<thead>
+			
+				
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+		</div>
+
+		
+	</body>
+</html>

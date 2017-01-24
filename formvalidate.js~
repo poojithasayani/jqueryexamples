@@ -1,0 +1,64 @@
+$().ready(function(){
+
+var arr=[];
+    $("form[name='submission']").validate({
+     rules:{
+        fulname:"required",
+        eid:{
+           required:true,
+           number:true,
+           minlength:3
+           },
+         salary:{
+           required:true,
+           number:true,
+           minlength:4
+          }
+      },
+    messages: {
+        fulname: "Please enter your name",
+        eid: {
+          required: "Please provide id",
+          number:"Id must be in number format",
+          minlength: "Your id must be at least 3 digits"
+         },
+        salary:{
+          required:"please provide the salaray",
+          number:"salary must be in number format",
+          minlength:"salary must be atleast of 4 digits"
+         }
+       },
+submitHandler: function(form) {
+     
+ 
+    
+var obj;
+      obj={
+         "fulname" : $('#fulname').val(),
+         "eid" : $('#eid').val(),
+         "salary" : $('#salary').val()
+        
+         }
+
+
+  arr.push(obj);
+   var n=arr.length-1; 
+document.getElementById("demo").innerHTML = "Found " + n + " tr elements in the table.";
+console.log(arr,n);
+
+   var str = '';
+         
+            str += '<tr id="row'+n+'"><td input type="text" id="name'+n+'">'+$('#fulname').val()+'</td>';
+            str += '<td input type="text" id="eid'+n+'">'+$('#eid').val()+'</td>';
+            str += '<td input type="text" id="sal'+n+'">'+$('#salary').val()+'</td>';
+            str += '<td id="edit'+n+'"><input type="button" name="edit" class="edit" value="edit"></td>';
+            str += '<td id="del'+n+'"><input type="button" name="del" class="del" value="del" ></td></tr>'; 
+            $("#ok").find('tbody:last').append(str); 
+
+
+ }
+
+
+});
+
+});

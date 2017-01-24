@@ -1,0 +1,74 @@
+<html>
+<head> 
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="jquery.validate.min.js"></script>
+  <script type="text/javascript" src="bootstrap.min.js"></script>
+   <script type="text/javascript" src="jquery-ui.min.js"></script>
+  <script type="text/javascript" src="formvalidate.js"></script>
+</head>
+
+<body>
+
+  <div class="tab">
+   <form action="" name="submission" class="form-group" id="form" >
+     <table>
+      <th><h1>Employee details<h1></th>
+       <tr> <td>FullName:</td> <td><input type="text" name="fulname" id="fulname"></td> </tr>
+       <tr> <td>Employee Id:</td> <td><input type="text" name="eid" id="eid"></td> </tr>
+       <tr> <td>Salary:</td> <td><input type="text" name="salary" id="salary"></td> </tr>
+       <tr> <td><input type="submit" value="SUBMIT" id="addrow"></td> </tr>
+       <tr></tr>
+     </table>
+   </form>  
+  </div>
+
+  <div id="ok">
+   <h2>Details of employees</h2>
+    <table id="mytable" class="table"> 
+     <tr id="headings">
+                
+                <th> Employee name </th>
+                <th> Employee id</th>
+                <th> Salary</th>
+     </tr>
+    <tbody>
+     
+    </tbody>
+
+   </table>
+
+<p id="demo"> "hi" </p>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+     <div class="modal-content">
+      
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Updating Details</h4>
+        </div>
+        <div class="modal-body">
+         Employee Name: <input type="text" name="en" id="en"></br>
+         Employee id: <input type="text" name="ei" id="ei"></br>
+         Employee salary: <input type="text" name="es" id="es"></br>
+ 
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="update">Update</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+
+
+</body>
+</html>
+ 

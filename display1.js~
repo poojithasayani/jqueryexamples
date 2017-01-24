@@ -1,0 +1,20 @@
+
+  $(document).ready(function(){
+
+   $("#addrow").click(function(){
+    var n=document.getElementById("mytable").rows.length;
+    document.getElementById("demo").innerHTML = "Found " + n + " tr elements in the table.";
+    var str = '';
+         
+            str += '<tr id="row'+n+'"><td input type="text" id="name'+n+'">'+$('#fulname').val()+'</td>';
+            str += '<td input type="text" id="eid'+n+'">'+$('#eid').val()+'</td>';
+            str += '<td input type="text" id="sal'+n+'">'+$('#salary').val()+'</td>';
+            str += '<td id="edit'+n+'"><input type="button" value="Edit" id="edit'+n+'"></td>';
+            str += '<td id="del'+n+'"><input type="button" value="Delete" id="del'+n+'"></td></tr>'; 
+            $("#ok").find('tbody:last').append(str); 
+  
+}); 
+ 
+});
+
+ 

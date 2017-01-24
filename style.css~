@@ -1,0 +1,25 @@
+<style>
+    body {
+   }
+  .tab{
+     background-color:lightblue;
+     margin: 0 auto;    
+      width:1000px; 
+text-align:centre;
+  }
+
+#ok{
+      margin: 0 auto; 
+      height:1000px;
+      width:1000px; 
+      border: black;
+      background-color:lightpink;
+      text-align:centre;
+    }
+   .dis{
+     background-color:lightblue;
+     margin: 0 auto;    
+      width:550px; 
+text-align:centre;
+     }
+</style>

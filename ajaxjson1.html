@@ -1,0 +1,107 @@
+<html>
+	<head>
+	    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+		<script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="jquery.validate.min.js"></script>
+        <script type="text/javascript" src="bootstrap.min.js"></script>
+        <script type="text/javascript" src="jquery-ui.min.js"></script>
+         <script type="text/javascript">
+
+         $().ready(function(){
+
+
+          $("#upload").click(function(){
+
+          	$.ajax({
+          		
+          		type: "get",
+          		url: "file.json",
+          		success: function(result, textStatus, xhr){
+          			$(".alert#success").show('medium');
+          				console.log(xhr.status);
+
+                   var json = (function () {
+                        var json = null;
+                          $.ajax({
+                                'async': false,
+                                'global': false,
+                                'url': "file.json",
+                                'dataType': "json",
+                                'success': function (data) {
+
+                                       console.log(data);
+                                      // var arr=JSON.stringify(data);
+                                      for(var i in data.Students[0]){                                    	
+                                          var str='';
+                                           str +='<th>'+i+'</th>';
+                                             $("#display").find('thead').append(str); 
+
+                                      }
+                                      
+                                      	for(var x in data.Students){
+                                      		var t= "<tr></tr>";
+
+                                      		for(var i in data.Students[x]){
+                                      			console.log(data.Students[x][i]);
+                                      			var p=data.Students[x][i];
+                                      			var str='';
+                                      			str +='<td>'+p+'</td>';
+                                      			$("#display").find('tbody').append(str);
+
+                                      	}
+                                      	$("#display").find('tbody').append(t);
+
+                                      }
+                                      
+                                     }
+                                  });
+                               
+                     })(); 
+          			
+          			
+          		},
+          		error: function(result, textStatus, a){
+          			$(".alert#fail").show('medium');
+          				console.log(a.status);
+
+          		}
+          		
+          	});
+          	console.log('hi');
+
+          });
+		});
+         </script>
+
+	</head>
+	<body>
+	     <h2>Upoading a file</h2>	
+		
+		<div><input type="button" name="upload" id="upload" value="Upload"></div>
+
+		<div class="alert alert-success alert-dismissable" style="display:none;" id="success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Success! uploaded successfuly.
+        </div>
+        <div class="alert alert-success alert-dismissable" style="display:none;" id=fail>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Failed! File not found.
+        </div>
+
+        <p id="show"></p>
+
+		<div id="display"> 
+		<table class="table">
+			<thead>
+			
+				
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+		</div>
+
+		
+	</body>
+</html>
