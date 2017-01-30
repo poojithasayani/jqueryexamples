@@ -1,0 +1,21 @@
+[{
+	"Language":"English",
+	"population":"1000000"
+},
+{
+	"Language":"Telugu",
+	"population":"300000"
+},
+{
+	"Language":"Hindi",
+	"population":"800000"
+},
+{
+	"Language":"Tamil",
+	"population":"100000"
+},
+{
+	"Language":"Malayalam",
+	"population":"450000"
+}
+]

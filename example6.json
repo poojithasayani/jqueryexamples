@@ -1,0 +1,38 @@
+[
+	{
+	"Accessories":"laptop",
+	"Sales":250
+},
+{
+	"Accessories":"Mobile",
+	"Sales":380
+},
+{
+	"Accessories":"Watch",
+	"Sales":120
+},{
+	"Accessories":"TV",
+	"Sales":500
+},{
+	"Accessories":"Refrigirator",
+	"Sales":230
+},{
+	"Accessories":"AC",
+	"Sales":158
+},
+{
+	"Accessories":"Grinder",
+	"Sales":320
+},{
+	"Accessories":"Induction",
+	"Sales":285
+},{
+	"Accessories":"PowerBanks",
+	"Sales":538
+},{
+	"Accessories":"Headset",
+	"Sales":444
+}
+]
+
+
