@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="d3.v2.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			var height=600,width=900,radius=Math.min(width,height)/2;
+			var svg=d3.select("body").append("svg").attr("width",width).attr("height",height).style("background-color","lightgrey").append("g").attr("transform","translate("+width/2+","+height/2+")");
+
+			d3.json("example4.json",function(data){
+								
+			var color=d3.scale.category20();
+			var arc=d3.svg.arc().outerRadius(radius-30).innerRadius(0);
+			var pie=d3.layout.pie().sort(null);
+			var d=[];
+			$.each(data,function(k,v){
+				console.log(data[k].population);
+				d.push(data[k].population);
+			})
+			var g=svg.selectAll("g").data(pie(d)).enter().append("g").attr("class","arc");
+			g.append("path").attr("d",arc).style("fill",function(d,i){ return color(d.value); });
+			     
+		});
+			
+
+		});
+		</script>
+</head>
+<body>
+
+</body>
+</html>

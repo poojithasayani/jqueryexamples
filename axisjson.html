@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="d3.v2.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			
+		
+			d3.json("example3.json",function(data){
+				var margin={left:40,right:40,top:40,bottom:40},
+			   height=700-(2*margin.top),
+			   width=1000-(2*margin.left);
+				           
+		    	var axisscale_x=d3.scale.linear().domain([d3.min(data,function(d){ return d.id}),d3.max(data,function(d){ return d.id})]).range([(2*margin.left),width]);
+				var axisscale_y=d3.scale.linear().domain([d3.min(data,function(d){ return d.Total}),d3.max(data,function(d){ return d.Total})]).range([height,(2*margin.left)]);
+				var xAxis = d3.svg.axis().scale(axisscale_x).orient("bottom").ticks(10);
+                var yAxis = d3.svg.axis().scale(axisscale_y).orient("left").ticks(15);
+                        
+                var line = d3.svg.line()
+                					.x(function(d, i) {
+                	                         return axisscale_x(d.id);
+                                                    })
+                                         .y(function(d, i) {
+                                         	 return axisscale_y(d.Total);
+                                                        })
+                                         .interpolate("linear"); 
+               	var canvas=d3.select("body").append("svg").attr("width",width+(2*margin.left)).attr("height",height+(2*margin.top)).style("background-color","lightpink");
+			
+				
+				var p=canvas.append("g").attr("class","x axis").attr("transform","translate(0,"+height+")").call(xAxis);
+				canvas.append("text").attr("text-anchor","middle").attr("x",width/2).attr("y",height+margin.top).style("font-size","25px").style("font-weight","bold").text("Id");	
+				var q=canvas.append("g").attr("class","y axis").attr("transform","translate("+2*margin.left+",0)").call(yAxis);	
+				canvas.append("text").attr("text-anchor","middle").attr("x",-height/2).attr("y",margin.left).attr("transform","rotate(-90)").style("font-size","25px").style("font-weight","bold").text("Total");
+				canvas.append("path").attr("d", line(data.sort(function(a,b){ return a.id-b.id;}))).attr("fill", "none").attr("stroke", "red").attr("stroke-width", 3);
+
+			});
+			
+		});
+
+		</script>
+</head>
+<body>
+
+</body>
+</html>
